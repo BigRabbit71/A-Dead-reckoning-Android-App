@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+		<!--   
+    <TextView  
+		android:id="@+id/angle_x"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+	
+	<TextView  
+		android:id="@+id/angle_y"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+	
+	<TextView  
+		android:id="@+id/angle_z"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+		--> 
+    
+	<TextView  
+		android:id="@+id/accelerometerLevel_x"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+	
+	<TextView  
+		android:id="@+id/accelerometerLevel_y"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+	
+	<TextView  
+		android:id="@+id/accelerometerLevel_z"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+		
+	<TextView  
+		android:id="@+id/angularVelocity_x"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+	
+	<TextView  
+		android:id="@+id/angularVelocity_y"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+	
+	<TextView  
+		android:id="@+id/angularVelocity_z"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+
+	<TextView  
+		android:id="@+id/Theta_0"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>		
+	
+	<TextView  
+		android:id="@+id/Gamma_0"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>		
+		
+	<TextView  
+		android:id="@+id/Phi_0"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>		
+		<!--
+		<TextView  
+		android:id="@+id/accelerometerAverage_x"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+
+		<TextView  
+		android:id="@+id/accelerometerAverage_y"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+		
+		<TextView  
+		android:id="@+id/accelerometerAverage_z"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>	
+	-->
+	
+	<TextView  
+		android:id="@+id/accelerometerLevelTrue_x"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+	
+	<TextView  
+		android:id="@+id/accelerometerLevelTrue_y"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+	
+	<TextView  
+		android:id="@+id/accelerometerLevelTrue_z"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+	
+	
+	
+<!-- 
+	<TextView 
+	    android:id="@+id/distance_x"
+	    android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+	
+	<TextView 
+	    android:id="@+id/distance_y"
+	    android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"	    
+		/>
+	
+	<TextView 
+	    android:id="@+id/distance_z"
+	    android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+	
+ -->	
+	
+	<Button 
+	    android:id="@+id/button_1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="Start Something"/>
+    
+
+</LinearLayout>
