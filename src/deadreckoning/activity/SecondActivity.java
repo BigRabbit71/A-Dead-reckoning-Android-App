@@ -1,4 +1,6 @@
-package com.example.allsensors;
+package deadreckoning.activity;
+
+import com.example.allsensors.R;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-		<!--   
+ 
     <TextView  
 		android:id="@+id/angle_x"
 		android:singleLine="false"
@@ -27,7 +27,6 @@
 		android:layout_height="wrap_content"
 		android:layout_gravity="left"
 		android:textSize="20sp"/>
-		--> 
     
 	<TextView  
 		android:id="@+id/accelerometerLevel_x"
@@ -152,30 +151,31 @@
 	
 	
 	
-<!-- 
-	<TextView 
-	    android:id="@+id/distance_x"
-	    android:layout_width="wrap_content"
+	
+	<TextView  
+		android:id="@+id/stepNumber"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_gravity="left"
 		android:textSize="20sp"/>
 	
-	<TextView 
-	    android:id="@+id/distance_y"
-	    android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_gravity="left"
-		android:textSize="20sp"	    
-		/>
-	
-	<TextView 
-	    android:id="@+id/distance_z"
-	    android:layout_width="wrap_content"
+	<TextView  
+		android:id="@+id/frequency"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_gravity="left"
 		android:textSize="20sp"/>
 	
- -->	
+	<TextView  
+		android:id="@+id/distance"
+		android:singleLine="false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:textSize="20sp"/>
+	
 	
 	<Button 
 	    android:id="@+id/button_1"

@@ -4,7 +4,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="9"
         android:targetSdkVersion="18" />
 
     <application
@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme" >
         
         <activity
-        	android:name="MainActivity"		
+        	android:name="deadreckoning.activity.MainActivity"		
         	android:label="AllSensors">
         	<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
         	</intent-filter>        
     	</activity>
     	
-        <activity android:name=".SecondActivity">
+        <activity android:name="deadreckoning.activity.SecondActivity">
         </activity>
         
         
