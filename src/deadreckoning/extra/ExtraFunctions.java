@@ -43,7 +43,8 @@ public final class ExtraFunctions {
     }
 
     public static float[][] multiplyMatrices(float[][] a, float[][] b) {
-
+        //a[][] * b[][] = c[][]
+    	
         //numRows = aRows
         int numRows = a.length;
 
@@ -61,38 +62,36 @@ public final class ExtraFunctions {
                     c[row][col] += a[row][element] * b[element][col];
             }
         }
-
-        //a[][] * b[][] = c[][]
         return c;
-
     }
 
-//    public static float[] multiplyMatrices(double[][] a, double[] b) {
-//
-//        //numRows = aRows
-//        int numRows = a.length;
-//
-//        //numCols = aCols
-//        int numCols = a[0].length;
-//
-//        //numElements = (aCols == bRows)
-//        //int numElements = b.length;
-//
-//        float[] c = new float[numRows];
-//
-//        for (int row = 0; row < numRows; row++) {
-//            for (int col = 0; col < numCols; col++) {
-//                c[row] += a[row][col] * b[col];
-//            }
-//        }
-//
-//        //a[][] * b[] = c[]
-//        return c;
-//
-//    }
+    /*
+    public static float[] multiplyMatrices(double[][] a, double[] b) {
+        //a[][] * b[] = c[]
+    	
+        //numRows = aRows
+        int numRows = a.length;
+
+        //numCols = aCols
+        int numCols = a[0].length;
+
+        //numElements = (aCols == bRows)
+        //int numElements = b.length;
+
+        float[] c = new float[numRows];
+
+        for (int row = 0; row < numRows; row++) {
+            for (int col = 0; col < numCols; col++) {
+                c[row] += a[row][col] * b[col];
+            }
+        }
+        return c;
+    }
+    */
 
     public static float[][] addMatrices(float[][] a, float[][] b) {
-
+        //a[][] + b[][] = c[][]
+    	
         int numRows = a.length;
         int numColumns = a[0].length;
 
@@ -101,13 +100,12 @@ public final class ExtraFunctions {
         for (int row = 0; row < numRows; row++)
             for (int column = 0; column < numColumns; column++)
                 c[row][column] = a[row][column] + b[row][column];
-
-        //a[][] + b[][] = c[][]
         return c;
     }
 
     public static float[][] scaleMatrix(float a[][], float scalar) {
-
+        //a[][] * c = b[][]
+    	
         int numRows = a.length;
         int numColumns = a[0].length;
 
@@ -116,10 +114,7 @@ public final class ExtraFunctions {
         for (int row = 0; row < numRows; row++)
             for (int column = 0; column < numColumns; column++)
                 b[row][column] = a[row][column] * scalar;
-
-        //a[][] * c = b[][]
         return b;
-
     }
 
     public static void addArrayToSharedPreferences(String arrayName, ArrayList<String> array, SharedPreferences.Editor editor) {

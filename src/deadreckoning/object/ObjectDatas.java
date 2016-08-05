@@ -28,6 +28,11 @@ public class ObjectDatas {
 	private float gamma = 0;
 	private float phi = 0;
 	
+	private float totalPhi = 0;
+	private float xdistance = 0;
+	private float ydistance = 0;
+	
+	
 
 	public void setaccelerometerValues (float[] accelerometerValues) {
 		this.accelerometerValues = accelerometerValues;
@@ -111,6 +116,18 @@ public class ObjectDatas {
 
 	public void setPhi(float phi) {
 		this.phi = phi;
+	}
+	
+	public void setTotalPhi(float totalPhi) {
+		this.totalPhi = totalPhi;
+	}
+	
+	public void setXdistance(float xdistance) {
+		this.xdistance = xdistance;
+	}
+	
+	public void setYdistance(float ydistance) {
+		this.ydistance = ydistance;
 	}
 
 	public float[] getaccelerometerValues() {
@@ -196,4 +213,17 @@ public class ObjectDatas {
 	public float getPhi() {
 		return phi;
 	}
+	
+	public float getTotalPhi() {
+		return totalPhi;
+	}
+	
+	public float getXdistance() {
+		return xdistance;
+	}
+	
+	public float getYdistance() {
+		return ydistance;
+	}
+	
 }

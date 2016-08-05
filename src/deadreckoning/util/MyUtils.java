@@ -17,7 +17,8 @@ public final class MyUtils {
 		int periodpoint = user.getPeriodpoint();
 		double frequency = user.getFrequency();
 		double length = user.getLength();
-		double distance = user.getDistance();
+		double xdistance = user.getXdistance();
+		double ydistance = user.getYdistance();
 			
 		double A = 0;	//合成加速度
 		double Atemp = 20;	//上一状态合成加速度
@@ -31,8 +32,7 @@ public final class MyUtils {
 			user.setDownpoint(downpoint);
 
 			if(statusTemp == 1) {	//上一状态合成加速度增加
-				if( (A>14) && (downpoint>20) ) {	//一个周期结束
-				//if( (A>11)  ) {
+				if( (A>12) && (downpoint>20) ) {	//一个周期结束
 					step++;
 					user.setStep(step);
 
@@ -43,21 +43,29 @@ public final class MyUtils {
 					if(frequency <= 1.35) {
 						length = 0.4375;
 						user.setLength(length);
-						distance += length;
-						user.setDistance(distance);
+						xdistance += length * Math.sin(user.getPhi());
+						user.setXdistance((float) xdistance);
+						ydistance += length * Math.cos(user.getPhi());
+						user.setYdistance((float) ydistance);
 					}
 					else if( (frequency>1.35) && (frequency<2.45) ) {
 						length = 0.45*frequency-0.22;
 						user.setLength(length);
-						distance += length;
-						user.setDistance(distance);
+						xdistance += length * Math.sin(user.getPhi());
+						user.setXdistance((float) xdistance);
+						ydistance += length * Math.cos(user.getPhi());
+						user.setYdistance((float) ydistance);
 					}
 					else if(frequency >= 2.45){
 						length = 0.9325;
 						user.setLength(length);
-						distance += length;
-						user.setDistance(distance);
+						xdistance += length * Math.sin(user.getPhi());
+						user.setXdistance((float) xdistance);
+						ydistance += length * Math.cos(user.getPhi());
+						user.setYdistance((float) ydistance);
 					}
+					
+					
 
 					periodpoint = 0;
 					user.setPeriodpoint(periodpoint);
@@ -89,34 +97,63 @@ public final class MyUtils {
 		averageAccelerometer[2] = (averageAccelerometer[2]*(straightPoint-1) + accelerometerValues[2])/straightPoint;
 		user.setaverageAccelerometer(averageAccelerometer);
 		g = (float) Math.sqrt( Math.pow(averageAccelerometer[0],2)+Math.pow(averageAccelerometer[1],2)+Math.pow(averageAccelerometer[2],2) );
-		//g = (float) Math.sqrt( Math.pow(accelerometerValues[0],2)+Math.pow(accelerometerValues[1],2)+Math.pow(accelerometerValues[2],2) );
 		user.setG(g);
 	}
 
 	/****更新运动姿态****/
 	public static void updateAttitude(ObjectDatas user) {
 		float[] gyroscopeValues = user.getgyroscopeValues();
-		float[] averageAccelerometer = user.getaverageAccelerometer();
-		float phi = user.getPhi();
+		//float[] averageAccelerometer = user.getaverageAccelerometer();
+		float[] Accelerometer = user.getaccelerometerValues();
+		float phi = 0;
+		float totalPhi = 0;
 		float[] rotation = new float[3];
-		double T = 0.02;
+		double T = 0.05;
+		float temp0 = 0;
+		float temp1 = 0;
 
 		rotation[0] = (float) Math.toDegrees(gyroscopeValues[0] * T);
 		rotation[1] = (float) Math.toDegrees(gyroscopeValues[1] * T);
 		rotation[2] = (float) Math.toDegrees(gyroscopeValues[2] * T);
 
-		if( ( Math.abs(rotation[0]) < 5 ) && ( Math.abs(rotation[1]) < 5 ) && ( Math.abs(rotation[2]) < 5 ) ) {
+		if( ( Math.abs(rotation[0]) < 15 ) && ( Math.abs(rotation[1]) < 15 ) && ( Math.abs(rotation[2]) < 15 ) ) {
 			user.setstraightFlag(true);
 			user.setPhi(0);
 		}
 		else {
 			user.setstraightFlag(false);
-			phi += (float) Math.toDegrees((averageAccelerometer[0]*rotation[0] + averageAccelerometer[1]*rotation[1] + averageAccelerometer[2]*rotation[2])/user.getG());
-			user.setPhi(phi);
-		}
+			phi = (float) ((Accelerometer[0]*rotation[0] + Accelerometer[1]*rotation[1] + Accelerometer[2]*rotation[2])/9.8);	
 
+			//temp0 = totalPhi;
+			totalPhi = user.getTotalPhi();
+			totalPhi = totalPhi + phi;	//???????+=
+
+			user.setPhi(phi);
+			user.setTotalPhi(totalPhi);
+			//totalPhi += user.getPhi();
+
+		}
+		//user.setTotalPhi(totalPhi);
+	}
+
+	/****航位推算****/
+	public static void DR(ObjectDatas user) {
+		float xdistance = user.getXdistance();
+		float ydistance = user.getYdistance();
+		float length = (float) user.getLength();
+		float phirad = (float) Math.toRadians(user.getPhi());
+
+	
+		xdistance += (float) (length*Math.sin(phirad));	//???????????
+		user.setXdistance(xdistance);
+		ydistance += (float) (length*Math.cos(phirad));	//?????????????
+		user.setYdistance(ydistance);	
 
 	}
+
+
+
+
 
 
 
