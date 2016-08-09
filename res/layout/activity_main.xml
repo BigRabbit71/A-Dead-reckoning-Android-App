@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
- 
+    
+<!--
     <TextView  
 		android:id="@+id/angle_x"
 		android:singleLine="false"
@@ -27,7 +29,8 @@
 		android:layout_height="wrap_content"
 		android:layout_gravity="left"
 		android:textSize="20sp"/>
-    
+ --> 
+<!--     
 	<TextView  
 		android:id="@+id/accelerometerLevel_x"
 		android:singleLine="false"
@@ -91,15 +94,17 @@
 		android:layout_height="wrap_content"
 		android:layout_gravity="left"
 		android:textSize="20sp"/>		
-		
+-->
+	
 	<TextView  
 		android:id="@+id/Phi_0"
 		android:singleLine="false"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_gravity="left"
-		android:textSize="20sp"/>		
-		<!--
+		android:textSize="20sp"/>	
+			
+<!--
 		<TextView  
 		android:id="@+id/accelerometerAverage_x"
 		android:singleLine="false"
@@ -123,8 +128,9 @@
 		android:layout_height="wrap_content"
 		android:layout_gravity="left"
 		android:textSize="20sp"/>	
-	-->
+-->
 	
+<!-- 	
 	<TextView  
 		android:id="@+id/accelerometerLevelTrue_x"
 		android:singleLine="false"
@@ -148,7 +154,7 @@
 		android:layout_height="wrap_content"
 		android:layout_gravity="left"
 		android:textSize="20sp"/>
-	
+-->	
 	
 	
 	
@@ -175,13 +181,37 @@
 		android:layout_height="wrap_content"
 		android:layout_gravity="left"
 		android:textSize="20sp"/>
-	
+			
 	
 	<Button 
 	    android:id="@+id/button_1"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:text="Start Something"/>
-    
+	    android:text="Start Drawing"/>
+	
+<!--
+	<FrameLayout  
+    android:id="@+id/root"  
+    android:layout_width="match_parent"  
+    android:layout_height="match_parent" 
+    tools:context="com.example.allsensers.MainActivity" >  
+	</FrameLayout> 
+-->	
+	
+	
+	
 
+	
+<!-- 	
+	<LinearLayout
+	   android:id="@+id/viewObj"
+	   android:layout_width="wrap_content"
+	   android:layout_height="wrap_content"
+	   android:orientation="vertical"
+	   android:layout_x="1px"  
+   	   android:layout_y="1px"
+	   />
+ -->	
+	
 </LinearLayout>
+

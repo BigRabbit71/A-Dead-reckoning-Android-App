@@ -1,5 +1,7 @@
 package deadreckoning.object;
 
+import java.util.ArrayList;
+
 public class ObjectDatas {
 	private float[] accelerometerValues = new float[3];	 
 	private float[] magneticValues = new float[3];
@@ -32,7 +34,19 @@ public class ObjectDatas {
 	private float xdistance = 0;
 	private float ydistance = 0;
 	
+	private ArrayList<Float> pointList;
 	
+	public void setPointList (ArrayList<Float> pointList) {
+		this.pointList = pointList;
+	}
+	
+	public void addPointList(float point) {
+		this.pointList.add(point);
+	}
+	
+	public ArrayList<Float> getPointList() {
+		return pointList;
+	}
 
 	public void setaccelerometerValues (float[] accelerometerValues) {
 		this.accelerometerValues = accelerometerValues;

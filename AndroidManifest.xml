@@ -25,6 +25,9 @@
         <activity android:name="deadreckoning.activity.SecondActivity">
         </activity>
         
+        <activity android:name="deadreckoning.activity.ThirdActivity">
+        </activity>
+        
         
     </application>
 
