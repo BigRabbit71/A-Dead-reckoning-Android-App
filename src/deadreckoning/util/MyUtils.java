@@ -32,7 +32,7 @@ public final class MyUtils {
 			user.setDownpoint(downpoint);
 
 			if(statusTemp == 1) {	//上一状态合成加速度增加
-				if( (A>12) && (downpoint>15) ) {	//一个周期结束
+				if( (A>12) && (downpoint>12) ) {	//一个周期结束
 					step++;
 					user.setStep(step);
 

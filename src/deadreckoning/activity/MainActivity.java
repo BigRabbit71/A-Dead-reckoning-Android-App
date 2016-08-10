@@ -32,6 +32,8 @@ import deadreckoning.object.ObjectDatas;
 import deadreckoning.util.MyUtils;
 
 public class MainActivity extends Activity{	
+	ObjectDatas user = new ObjectDatas();
+	//int i = 0;
 	private SensorManager sensorManager;
 	
 	//地磁�?
@@ -103,16 +105,7 @@ public class MainActivity extends Activity{
 		steptext = (TextView) findViewById(R.id.stepNumber);
 		frequencytext = (TextView) findViewById(R.id.frequency);
 		distancetext = (TextView) findViewById(R.id.distance);
-		
-		
-		//FrameLayout root = (FrameLayout)findViewById(R.id.root);
-		//root.addView(new MyView(MainActivity.this));
-		
-		// 取得LinearLayout 物件  
-		//FrameLayout root = (FrameLayout)findViewById(R.id.root); 
-		//root.addView(new MyView(MainActivity.this));
-		
-		
+			
 		
 		sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		
@@ -131,6 +124,13 @@ public class MainActivity extends Activity{
 				//intent to start the ThirdActivity
 				Intent intent = new Intent(MainActivity.this, ThirdActivity.class);
 				
+				Bundle bundle = new Bundle();
+				//float[] pts = {1,1,10,10,100,100};
+						
+				float[] pts = user.getpts();
+				
+				bundle.putFloatArray("FloatArray_key", pts);
+				intent.putExtra("key", bundle);
 				
 				startActivity(intent);
 			}
@@ -153,17 +153,14 @@ public class MainActivity extends Activity{
 		float[] angleDatas = new float[3];
 		//double[] trueAccelerometer0 = new double[3];
 		double[] accelerometerValuesTrue = new double[3];
-		//double[] distanceDatas = new double[3];
-		//double[] v = new double[3];
 		float[] floatClear = new float[3];
 		
 		float[] values = new float[3];
 		float[] rotate = new float[9];	//旋转数组，用来存放磁场和加速度的数据
 		
-		
+		float[] pts = user.getpts();
+		int i = 0;
 
-		ObjectDatas user = new ObjectDatas();
-		
 		
 		@Override
 		public void onSensorChanged(SensorEvent event) {			
@@ -206,13 +203,22 @@ public class MainActivity extends Activity{
 			frequencytext.setText("Frequency: " + user.getFrequency() + " Hz;");
 			distancetext.setText("North distance: " + user.getYdistance() + " m;\n" + "East distance: " + user.getXdistance() + " m;\n" );
 			
+			pts[i] = (float) Math.floor(user.getXdistance())*5f + 540f;
+			pts[i+1] = (float) Math.floor(user.getYdistance())*5f + 960f;
+			user.setpts(pts);
+			
+			//这段条件有问题，要修改！！！！！！！！！！！！！！
+			if(i < 50000)
+				i += 2;
+			else
+				i = 0;
+			
 			//一运行就死机！！！！！！！！！！
 			//ArrayList<Float> pointList = user.getPointList();
 			//pointList.add((float) Math.floor(user.getXdistance()) + 540f);
 			//pointList.add((float) Math.floor(user.getYdistance()) + 960f);
 			//user.setPointList(pointList);
-			
-			//user.addPointList((float) Math.floor(user.getXdistance()) + 540f);
+
 			
 
 			/*

@@ -35,18 +35,25 @@ public class ObjectDatas {
 	private float ydistance = 0;
 	
 	private ArrayList<Float> pointList;
-	
 	public void setPointList (ArrayList<Float> pointList) {
 		this.pointList = pointList;
-	}
-	
+	}	
 	public void addPointList(float point) {
 		this.pointList.add(point);
-	}
-	
+	}	
 	public ArrayList<Float> getPointList() {
 		return pointList;
 	}
+	
+	
+	private float[] pts = new float[50000];
+	public void setpts(float[] pts) {
+		this.pts = pts;
+	}
+	public float[] getpts() {
+		return pts;
+	}
+	
 
 	public void setaccelerometerValues (float[] accelerometerValues) {
 		this.accelerometerValues = accelerometerValues;
