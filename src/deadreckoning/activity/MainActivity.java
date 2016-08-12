@@ -203,8 +203,10 @@ public class MainActivity extends Activity{
 			frequencytext.setText("Frequency: " + user.getFrequency() + " Hz;");
 			distancetext.setText("North distance: " + user.getYdistance() + " m;\n" + "East distance: " + user.getXdistance() + " m;\n" );
 			
-			pts[i] = (float) Math.floor(user.getXdistance())*5f + 540f;
-			pts[i+1] = (float) Math.floor(user.getYdistance())*5f + 960f;
+			//pts[i] = (float) Math.floor(user.getXdistance())*1f + 540f;
+			//pts[i+1] = (float) Math.floor(user.getYdistance())*1f + 960f;
+			pts[i] = (float) (user.getXdistance() *3f + 540f);
+			pts[i+1] = (float) (user.getYdistance() *3f+ 960f);
 			user.setpts(pts);
 			
 			//这段条件有问题，要修改！！！！！！！！！！！！！！
