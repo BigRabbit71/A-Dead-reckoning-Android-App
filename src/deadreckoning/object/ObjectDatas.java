@@ -17,6 +17,7 @@ public class ObjectDatas {
 	private int uppoint = 0;	//合成加速度累积增加的采样点数
 	private int downpoint = 0;	//合成加速度累积减小的采样点数
 	private int periodpoint = 0;	//一个周期的采样点数
+	private double ATemp = 11;	//合成加速度阈值
 	private double frequency = 0;	//步频
 	private double length = 0;		//单步长
 	private double distance = 0;	//行走距离
@@ -115,6 +116,10 @@ public class ObjectDatas {
 		this.periodpoint = periodpoint;
 	}
 	
+	public void setAccelermeterTemp(double ATemp) {
+		this.ATemp = ATemp;
+	}
+	
 	public void setFrequency(double frequency) {
 		this.frequency = frequency;
 	}
@@ -209,6 +214,10 @@ public class ObjectDatas {
 
 	public int getPeriodpoint() {
 		return periodpoint;
+	}
+	
+	public double getAccelermeterTemp() {
+		return ATemp;
 	}
 
 	public double getFrequency() {

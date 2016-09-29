@@ -15,24 +15,74 @@ public final class MyUtils {
 		int uppoint = user.getUppoint();
 		int downpoint = user.getDownpoint();
 		int periodpoint = user.getPeriodpoint();
+		double Atemp = user.getAccelermeterTemp();	//上一状态合成加速度
+		
 		double frequency = user.getFrequency();
 		double length = user.getLength();
 		double xdistance = user.getXdistance();
 		double ydistance = user.getYdistance();
 			
 		double A = 0;	//合成加速度
-		double Atemp = 20;	//上一状态合成加速度
+		//double Atemp = 12;	//上一状态合成加速度
 		A = Math.sqrt( Math.pow(accelerometer[0], 2) + Math.pow(accelerometer[1], 2) + Math.pow(accelerometer[2], 2) );
 
+		if( A > Atemp ) {//合成加速度是否大于阈值
+			periodpoint++;
+			user.setPeriodpoint(periodpoint);
+			if( (periodpoint>15) && (periodpoint<100) ) {//时间间隔是否合理
+				if( (Math.abs(A-Atemp)>0.7) && (Math.abs(A-Atemp)<10) ) {//加速度差值是否合理
+					step++;
+					user.setStep(step);				
+					
+					//根据步频和步长的线性关系得到步长
+					frequency = 1/(periodpoint * delta);
+					user.setFrequency(frequency);
+					if(frequency <= 1.35) {
+						length = 0.4375;
+						user.setLength(length);
+						xdistance += length * Math.sin(user.getPhi());
+						user.setXdistance((float) xdistance);
+						ydistance += length * Math.cos(user.getPhi());
+						user.setYdistance((float) ydistance);
+					}
+					else if( (frequency>1.35) && (frequency<2.45) ) {
+						length = 0.45*frequency-0.22;
+						user.setLength(length);
+						xdistance += length * Math.sin(user.getPhi());
+						user.setXdistance((float) xdistance);
+						ydistance += length * Math.cos(user.getPhi());
+						user.setYdistance((float) ydistance);
+					}
+					else if(frequency >= 2.45){
+						length = 0.9325;
+						user.setLength(length);
+						xdistance += length * Math.sin(user.getPhi());
+						user.setXdistance((float) xdistance);
+						ydistance += length * Math.cos(user.getPhi());
+						user.setYdistance((float) ydistance);
+					}
+					
+					
+				}
+				periodpoint = 0;
+				user.setPeriodpoint(periodpoint);
+			}		
+		}
+		
+		
+		
+		
+		/*
 		if( A<Atemp ) {	//合成加速度减小
-			Atemp = A;
+			user.setAccelermeterTemp(A);
 			periodpoint++;
 			user.setPeriodpoint(periodpoint);
 			downpoint++;
 			user.setDownpoint(downpoint);
 
 			if(statusTemp == 1) {	//上一状态合成加速度增加
-				if( (A>12) && (downpoint>12) ) {	//一个周期结束
+				//if( (A>12) && (downpoint>12) ) {	//一个周期结束
+				if( (A>12) && (periodpoint>12) ) {	//一个周期结束?????有疑问！！！
 					step++;
 					user.setStep(step);
 
@@ -65,7 +115,6 @@ public final class MyUtils {
 						user.setYdistance((float) ydistance);
 					}
 					
-					
 
 					periodpoint = 0;
 					user.setPeriodpoint(periodpoint);
@@ -75,7 +124,7 @@ public final class MyUtils {
 			user.setstatustemp(statusTemp);
 		}
 		else {	//合成加速度增加
-			Atemp = A;
+			user.setAccelermeterTemp(A);
 			periodpoint++;
 			user.setPeriodpoint(periodpoint);
 			uppoint++;
@@ -83,6 +132,7 @@ public final class MyUtils {
 			statusTemp = 1;
 			user.setstatustemp(statusTemp);
 		}
+		*/
 	}
 		
 	/****计算直行时加速度的算术平均值****/

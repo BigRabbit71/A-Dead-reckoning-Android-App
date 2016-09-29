@@ -33,7 +33,7 @@ import deadreckoning.util.MyUtils;
 
 public class MainActivity extends Activity{	
 	ObjectDatas user = new ObjectDatas();
-	//int i = 0;
+
 	private SensorManager sensorManager;
 	
 	//地磁�?
