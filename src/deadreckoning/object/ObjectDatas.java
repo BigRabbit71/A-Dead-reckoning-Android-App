@@ -2,6 +2,7 @@ package deadreckoning.object;
 
 import java.util.ArrayList;
 
+
 public class ObjectDatas {
 	private float[] accelerometerValues = new float[3];	 
 	private float[] magneticValues = new float[3];
@@ -22,6 +23,8 @@ public class ObjectDatas {
 	private double length = 0;		//单步长
 	private double distance = 0;	//行走距离
 	
+	
+	
 	private float g = 0;
 	private float[] averageAccelerometer = new float[3];
 	private int straightPoint = 0;	//累计直行的采样点数，用来计算平均值的
@@ -30,6 +33,8 @@ public class ObjectDatas {
 	private float theta = 0;
 	private float gamma = 0;
 	private float phi = 0;
+	private float startPhi = 0;	//原点时的初始角度
+	
 	
 	private float totalPhi = 0;
 	private float xdistance = 0;
@@ -144,6 +149,10 @@ public class ObjectDatas {
 		this.phi = phi;
 	}
 	
+	public void setstartPhi(float startPhi) {
+		this.startPhi = startPhi;
+	}
+	
 	public void setTotalPhi(float totalPhi) {
 		this.totalPhi = totalPhi;
 	}
@@ -242,6 +251,10 @@ public class ObjectDatas {
 	
 	public float getPhi() {
 		return phi;
+	}
+	
+	public float getstartPhi() {
+		return startPhi;
 	}
 	
 	public float getTotalPhi() {

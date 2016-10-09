@@ -40,25 +40,25 @@ public final class MyUtils {
 					if(frequency <= 1.35) {
 						length = 0.4375;
 						user.setLength(length);
-						xdistance += length * Math.sin(user.getPhi());
+						xdistance += length * Math.sin(user.getPhi()-user.getstartPhi());
 						user.setXdistance((float) xdistance);
-						ydistance += length * Math.cos(user.getPhi());
+						ydistance += length * Math.cos(user.getPhi()-user.getstartPhi());
 						user.setYdistance((float) ydistance);
 					}
 					else if( (frequency>1.35) && (frequency<2.45) ) {
 						length = 0.45*frequency-0.22;
 						user.setLength(length);
-						xdistance += length * Math.sin(user.getPhi());
+						xdistance += length * Math.sin(user.getPhi()-user.getstartPhi());
 						user.setXdistance((float) xdistance);
-						ydistance += length * Math.cos(user.getPhi());
+						ydistance += length * Math.cos(user.getPhi()-user.getstartPhi());
 						user.setYdistance((float) ydistance);
 					}
 					else if(frequency >= 2.45){
 						length = 0.9325;
 						user.setLength(length);
-						xdistance += length * Math.sin(user.getPhi());
+						xdistance += length * Math.sin(user.getPhi()-user.getstartPhi());
 						user.setXdistance((float) xdistance);
-						ydistance += length * Math.cos(user.getPhi());
+						ydistance += length * Math.cos(user.getPhi()-user.getstartPhi());
 						user.setYdistance((float) ydistance);
 					}
 					
